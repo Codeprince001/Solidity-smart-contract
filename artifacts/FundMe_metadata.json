@@ -6,26 +6,18 @@
 	"output": {
 		"abi": [
 			{
-				"inputs": [],
-				"name": "fund",
-				"outputs": [],
-				"stateMutability": "payable",
-				"type": "function"
-			},
-			{
-				"inputs": [],
-				"name": "getConvertionRate",
-				"outputs": [],
-				"stateMutability": "nonpayable",
-				"type": "function"
-			},
-			{
-				"inputs": [],
-				"name": "getPrice",
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "funders",
+						"type": "address"
+					}
+				],
+				"name": "amountsFunded",
 				"outputs": [
 					{
 						"internalType": "uint256",
-						"name": "",
+						"name": "amountFunded",
 						"type": "uint256"
 					}
 				],
@@ -34,12 +26,25 @@
 			},
 			{
 				"inputs": [],
-				"name": "getVersion",
-				"outputs": [
+				"name": "fund",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [
 					{
 						"internalType": "uint256",
 						"name": "",
 						"type": "uint256"
+					}
+				],
+				"name": "funders",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
 					}
 				],
 				"stateMutability": "view",
@@ -95,11 +100,19 @@
 			]
 		},
 		"FundMe.sol": {
-			"keccak256": "0xbe9b564e790e1bd1bcd7046c425e0a52bdbc1c953ab6921a6087caff2a10eea3",
+			"keccak256": "0x8f07ee0e656968e8b7b5dc696eedf6a2908262480f827631006b4f771cde755f",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://036c5c6f702c6f64fd9207a2e8527a6d914ce8c0683aadc7069b207430305386",
-				"dweb:/ipfs/QmXNtieebnGDhjU9e8yAKfh6sWT1E5dFTHg6ycSoHYCdVj"
+				"bzz-raw://220093bad9be248dca2085287f3a86c44ba4fbea59eb8b7a6ecbcd052ce21f58",
+				"dweb:/ipfs/QmagB8pjVMGUJMk1ctKdbXUdYEfDXdCDtwqvsxnsnJKL76"
+			]
+		},
+		"PriceConverter.sol": {
+			"keccak256": "0xdcb53fa5f41a3d7f2b8b353c3f3af02ad2ca1851bfca6787ea745d4e20df3639",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://ecd00acc8f4649fd57aa77bc9de52dcec05730092f1cd28cbd5d29a371f728ab",
+				"dweb:/ipfs/Qmdn5iAKkJd3Fc59gCmQParUtcbe2XuC8aTpnQVobe5Ypw"
 			]
 		}
 	},
