@@ -46,4 +46,14 @@ contract FundMe {
         if(msg.sender != i_owner){revert NewOwner();}
         _;
     }
+
+    // someone send eth without calling the fund function
+    receive() external payable {
+        fund();
+     }
+
+    // someone sends eth with data, without calling the fund function
+     fallback() external payable { 
+        fund();
+     }
 }
