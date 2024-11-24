@@ -6,6 +6,7 @@ import {PriceConverter} from "./PriceConverter.sol";
 
 contract FundMe {
     using PriceConverter for uint256;
+    error NewOwner();
 
     uint256 public constant MINIMUM_USD = 2e18;
 
@@ -41,7 +42,8 @@ contract FundMe {
     }
 
     modifier onlyOwner(){
-        require(msg.sender == i_owner, "Sender is not owner");
+        // require(msg.sender == i_owner, "Sender is not owner");
+        if(msg.sender != i_owner){revert NewOwner();}
         _;
     }
 }
