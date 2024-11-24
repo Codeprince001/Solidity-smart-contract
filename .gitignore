@@ -1,0 +1,18 @@
+# IDE-specific files
+.remix/
+.vscode/
+
+# Auto-generated folders
+artifacts/
+build/
+cache/
+.deps/
+
+# Dependencies
+node_modules/
+
+# Environment variables
+.env
+
+# Other
+*.log
