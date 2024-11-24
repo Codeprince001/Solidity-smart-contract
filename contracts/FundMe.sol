@@ -22,7 +22,8 @@ contract FundMe {
         amountsFunded[msg.sender] = amountsFunded[msg.sender] + msg.value;
     }
 
-    function withdraw() public {
+    function withdraw() public onlyOwner{
+
         for(uint256 funderIndex = 0; funderIndex < funders.length; funderIndex++){
             address funder = funders[funderIndex];
             amountsFunded[funder] = 0;
@@ -30,13 +31,17 @@ contract FundMe {
         funders = new address[](0);
         // actually withdraw fund:
         // transfer
-        payable (msg.sender).transfer(address(this).balance);
+        // payable (msg.sender).transfer(address(this).balance);
         // send
-        bool sendSuccess = payable (msg.sender).send(address(this).balance);
-        require(sendSuccess, "Send Failed");
+        // bool sendSuccess = payable (msg.sender).send(address(this).balance);
+        // require(sendSuccess, "Send Failed");
         // call
         (bool callSuccess, ) = payable (msg.sender).call{value: address(this).balance}("");
         require(callSuccess, "Call Failed");
+    }
 
+    modifier onlyOwner(){
+        require(msg.sender == owner, "Sender is not owner");
+        _;
     }
 }
